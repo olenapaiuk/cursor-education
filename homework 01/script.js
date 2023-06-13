@@ -34,7 +34,7 @@ const averagePrice =
 console.log("Average price:", averagePrice);
 
 const discount = Math.random();
-console.log("Random discount:", discount);
+console.log("Random discount:", (discount * 100).toFixed(2) + "%");
 
 const totalPriceWithDiscount = (totalPrice - totalPrice * discount).toFixed(2);
 console.log("Total price with discount:", totalPriceWithDiscount);
@@ -47,6 +47,8 @@ console.log(
   `Minimal price: ${minPrice}, maximal price: ${maxPrice},
    total price: ${totalPrice}, total price without coins: ${totalPriceWithoutCoins},
    total price rounded to the nearest hundred: ${roundedPrice}, total price is even number: ${totalPriceIsEvenNum}, 
-   change from 500 hrn: ${change}, average price: ${averagePrice}, random discount: ${discount}, total price with discount: ${totalPriceWithDiscount},
+   change from 500 hrn: ${change}, average price: ${averagePrice}, random discount: ${
+    (discount * 100).toFixed(2) + "%"
+  }, total price with discount: ${totalPriceWithDiscount},
    income money: ${income}`
 );
