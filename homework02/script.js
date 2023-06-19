@@ -1,15 +1,19 @@
-const N = Number(prompt("Введіть число N", ""));
+let N = Number(prompt("Введіть число N", ""));
 if (Number.isInteger(N)) {
   console.log("Число N ціле:", N, true);
-}  else
-  console.log("Число N ціле:", N, false);
+}  else if (isNaN(N) || !Number.isInteger(N)) {
+  N = prompt ('Число N введено некоректно, перевірте написання та введіть значення повторно.', '');
+}
 
 
-const M = Number(prompt("Введіть число M", ""));
+let M = Number(prompt("Введіть число M", ""));
+if (isNaN(M) || M<N || !Number.isInteger(M)) {
+  M = prompt('Число М введено некоректно, перевірте написання числа та введіть більше ніж N значення).');
+}
 if (Math.trunc(M) === M) {
   console.log("Число M ціле:", M, true);
-} else  
-  console.log("Число M ціле:", M, false);
+}
+  
 
 let access = confirm("Чи потрібно пропускати парні числа?");
 switch (access) {
@@ -25,13 +29,12 @@ switch (access) {
 
 let sum = 0;
 for (let i = N; i <= M; i++) {
-  if (access == false) {
+if (access == false) {
     sum = sum + i;
-  } else if (access == true) {
-    if (i % 2 == 1) {
+  } else if (access == true && i % 2 == 1) {
       sum = sum + i;
     }
   }
-}
+
 console.log("Сума чисел від N до M:", sum);
 alert(sum);
