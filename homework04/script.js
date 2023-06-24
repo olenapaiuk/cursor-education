@@ -7,35 +7,52 @@ const themes = [
 const marks = [4, 5, 5, 3, 4, 5];
 
 //TASK#1
-  const man = ["Олександр", "Ігор", "Олексій"];
-  const women = ["Олена", "Іра", "Світлана"];
-  const pairs = [];
-  for (let i = 0; i < man.length; i++) {
-    if (students.includes(man[i]) && students.includes(women[i])) {
-       pairs.push([man[i], women[i]]);
+function getPairs (students) {
+  const men = ["Олександр", "Ігор", "Олексій"];
+    const women = ["Олена", "Іра", "Світлана"];
+    const result1 = [];
+    for (let i = 0; i < men.length; i++) {
+      if (students.includes(men[i]) && students.includes(women[i])) {
+       result1.push([men[i], women[i]]);
+      }
     }
+    return result1;
   }
-console.log(pairs);
+  const pairs = getPairs (students);
+  console.log('Сформовані пари:', pairs);
+  
 
-//TASK#2
-  const themesForPairs = [];
+ //TASK#2
+ function getThemes (pairs, themes) { 
+ const result2 = [];
   for (let i = 0; i < pairs.length; i++) {
-   themesForPairs.push(pairs[i].concat(themes[i]));
+   result2.push(pairs[i].concat(themes[i]));
   }
-console.log(themesForPairs);
+  return result2;
+}
+const themesForPairs = getThemes (pairs, themes)
+console.log('Теми для пар:', themesForPairs);
 
 //TASK#3
-let marksForStudents = [];
+function getMark (students, marks) {
+let result3 = [];
 for (let i = 0; i < students.length; i++) {
-  marksForStudents.push([students[i], marks[i]]);
+  result3.push([students[i], marks[i]]);
 }
-console.log(marksForStudents);
+return result3;
+}
+const marksForStudents = getMark (students, marks);
+console.log('Оцінка студента:',marksForStudents);
 
 //TASK#4
-let randomMarksForPairs = [];
+function getMarkForPairs (themesForPairs) {
+let result4 = [];
 for (let i = 0; i < themesForPairs.length; i++) {
-  randomMarksForPairs.push([
+  result4.push([
     themesForPairs[i].concat(Math.round(Math.random() * (5 - 1) + 1)),
   ]);
 }
-console.log(randomMarksForPairs);
+return result4;
+}
+const randomMarksForPairs = getMarkForPairs (themesForPairs);
+console.log('Оцінка пари:', randomMarksForPairs);
