@@ -14,41 +14,29 @@ console.log("1. Mаксимальне значення числа станови
 
 // TASK#2
 alert("Ви переходете до завдання№2");
-function getNumberExponent(
-  num = prompt("Введіть число num яке хочете піднести до степеня:", ""),
-  exp = prompt("Введіть степінь exp:", "")
-) {
+function getNumberExponent(num = prompt("Введіть число num яке хочете піднести до степеня:", ""),
+  exp = prompt("Введіть степінь exp:", "")) {
   let result2 = 1;
   for (let i = 0; i < exp; i++) {
     result2 = result2 * num;
   }
   return result2;
 }
-console.log(
-  "2. Значення числа num піднесеного до степеня exp:",
-  getNumberExponent()
-);
+console.log("2. Значення числа num піднесеного до степеня exp:", getNumberExponent());
 
 // TASK#3
 alert("Завдання№3. Запишемо ім'я з великої літери");
 function capitalLetter(name = prompt("Вкажіть значення імені:", "")) {
   const nameToLowerCase = name.toLowerCase();
   let result3 = "";
-  for (let i = 0; i < nameToLowerCase.length; i++) {
-    if (nameToLowerCase[i] == nameToLowerCase[0]) {
       result3 = nameToLowerCase[0].toUpperCase() + nameToLowerCase.slice(1);
+      return result3;
     }
-  }
-  return result3;
-}
 console.log("3. Коректне написання імені:", capitalLetter());
 
 //TASK#5
 alert("Завдання№5. Повернення випадкового числа");
-function getRandomNumber(
-  N = prompt("Введіть перше число:", ""),
-  M = prompt("Введіть друге число:", "")
-) {
+function getRandomNumber(N = prompt("Введіть перше число:", ""), M = prompt("Введіть друге число:", "")) {
   const NToNum = Number(N);
   const MToNum = Number(M);
 
@@ -62,10 +50,7 @@ console.log(`5. Випадкове число:`, getRandomNumber());
 
 //TASK#6
 alert("Завдання№6. Обрахунок повторювальних літер");
-function countLetter(
-  word = prompt("Введіть слово:", ""),
-  letter = prompt("Введіть літеру:", "")
-) {
+function countLetter(word = prompt("Введіть слово:", ""),  letter = prompt("Введіть літеру:", "")) {
   let result6 = 0;
   for (let i = 0; i <= word.length; i++) {
     if (letter == word[i]) {
@@ -78,10 +63,7 @@ console.log("6. Кількість повторювальних літер:", co
 
 //TASK#10
 alert("Завдання№10. Видалення літери зі слова");
-function deleteLetter(
-  word = prompt("Введіть слово:", ""),
-  letter = prompt("Введіть літеру:", "")
-) {
+function deleteLetter(word = prompt("Введіть слово:", ""), letter = prompt("Введіть літеру:", "")) {
   let result10 = "";
 
   for (let i = 0; i < word.length; i++) {
@@ -97,13 +79,16 @@ console.log("10. Слово після видалення літер:", deleteLe
 alert("Завдання№11. Перевірка на паліндромність");
 function isPallindrom(word = prompt("Введіть слово:", "")) {
   const wordToLowerCase = word.toLowerCase();
+  let reversedWord = "";
 
-  for (let i = 0; i <= Math.ceil(wordToLowerCase.length / 2); i++) {
-    if (wordToLowerCase[i] == wordToLowerCase[wordToLowerCase.length - 1 - i]) {
+  for (let i = wordToLowerCase.length - 1; i >= 0; i--) {
+    reversedWord += wordToLowerCase[i];
+  }
+
+    if (wordToLowerCase == reversedWord) {
       return true;
     } else {
       return false;
-    }
   }
 }
 console.log("11. Чи є слово паліндромом?:", isPallindrom());
