@@ -13,7 +13,7 @@ function getPairs (students) {
     const result1 = [];
     for (let i = 0; i < men.length; i++) {
       if (students.includes(men[i]) && students.includes(women[i])) {
-       result1.push([men[i], women[i]]);
+       result1.push([men[i] +' i '+ women[i]]);
       }
     }
     return result1;
