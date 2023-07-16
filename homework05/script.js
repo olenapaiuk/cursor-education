@@ -85,19 +85,15 @@ const result7 = getDividedByFive();
 console.log("7.Масив чисел, що діляться на 5:", result7);
 
 //TASK#8
-function replaceBadWords (string) {
-  string = prompt('Введіть речення з нецензурним словом:', '');
-  const stringToArray = string.split(' ');
-  let libraryOfBadWords = ['fuck', 'shit'];
-  let changedArray = [];
-  
-  for (let i=0; i<stringToArray.length; i++) {
-      libraryOfBadWords.forEach(function (value) {if
-      (stringToArray[i].includes(value)) {return changedArray.push(stringToArray[i].replace(value, '****'))}
-  })
-  changedArray.push(stringToArray[i])} //я не знаю як ввести перевірку для того, щоб замінити зміненим словом з масиву незмінене
-  let finalString = changedArray.join(' ');
-  return finalString;
+function replaceBadWords () {
+  let string = prompt("Введіть речення з нецензурним словом:", "").toLowerCase();
+  let badWords=["fuck", "shit"];
+  let input = confirm("Чи бажаєте Ви поповнити запас лайливих слів?")
+  input===true?input=prompt('Введіть нове лайливе слово:', ''):null;
+  badWords.push(input);
+  let badWordsRE = new RegExp((badWords.join('|')), "gi");
+  let replacedString = string.replaceAll(badWordsRE, '****')
+  return replacedString;
 }
 const result8 = replaceBadWords();
 console.log('8. Змінена фраза з нецензурним словом:', result8);
