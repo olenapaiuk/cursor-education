@@ -86,7 +86,7 @@ console.log("7.Масив чисел, що діляться на 5:", result7);
 
 //TASK#8
 function replaceBadWords () {
-  let string = prompt("Введіть речення з нецензурним словом:", "").toLowerCase();
+  let string = prompt("Введіть речення з нецензурним словом:", "");
   let badWords=["fuck", "shit"];
   let input = confirm("Чи бажаєте Ви поповнити запас лайливих слів?")
   input===true?input=prompt('Введіть нове лайливе слово:', ''):null;
